@@ -1,0 +1,11 @@
+剖析 goettingen 的 PTS html
+
+依 book pagenumber 或段落 調出內文 
+PTS dictionary citation 格式
+  建立字典詞條與正文之連結
+
+產生bilara segment 和 PTS 對照表
+PTS 內文塞入 bilara segment 標記
+
+試用 vue 開發
+先不支持全文檢索

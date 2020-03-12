@@ -1,0 +1,10 @@
+﻿　　「貪焚有情　　　　　依貪行惡
+　　　勝觀之人　　　　　正知斷貪
+　　　斷於此世　　　　　決不再來」
+
+iti1: 3.1	“Yena lobhena luddhāse,	“When overcome by greed
+iti1: 3.2	sattā gacchanti duggatiṃ;	beings go to a bad place.
+iti1: 3.3	Taṃ lobhaṃ sammadaññāya,	Having rightly understood that greed,
+iti1: 3.4	pajahanti vipassino;	the discerning give it up.
+iti1: 3.5	Pahāya na punāyanti,	Once they’ve given it up,
+iti1: 3.6	imaṃ lokaṃ kudācanan”ti.	they never return to this world.”
