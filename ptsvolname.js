@@ -14,8 +14,8 @@ module.exports=
   'Dhātuk': 45, //from 1~113
   'DhkA': 45,   //from pg114
   'Pp': 46,
-  'Yam': 48,
-  'Paṭṭh': 50,
+  'Yam': 48,//雙論
+  'Paṭṭh': 50,//發趣
    'Kv': 47, //論事
 
 //以下 dhammakaya 無
