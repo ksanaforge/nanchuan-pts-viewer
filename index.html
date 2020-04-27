@@ -10,8 +10,11 @@
 	<div id="app">
 		
 		<button class="btnnav" @click="prevpage">Previous</button>
-		<input class="pagenum" @input="fetch" v-model="pagenum"/>
-		<button class="btnnav" @click="nextpage">Next</button><br/>
+		<input class="pagenum" @input="pagenumchange" v-model="pagenum"/>
+		<button class="btnnav" @click="nextpage">Next</button>
+
+		PTS:<input class="pagenum" @input="ptspagenumchange" v-model="ptspagenum"/>
+		<br/>
 		<breadcrumbtoc :vpl="vpl" :selectsid="selectsid" :gettoc="gettoc"></breadcrumbtoc>
 		<bigpopup :show="showpopup" :onclose="closepopup">
 			<xref :text="xreftext"></xref>

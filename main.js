@@ -3,6 +3,7 @@ require("./maintext");
 require("./bigpopup");
 require("./xref");
 require("./logger");
+const ptscite=require("./ptscite");
 const helpmessage=[["","南傳大藏經、PTS 逐頁對讀。"]
                   ,["","版本：2020.3.11"]
                   ,["","https://github.com/ksanaforge/pts-viewer/"]]
@@ -24,13 +25,14 @@ const URLParams=()=>{
 	p.forEach( (v,k)=>out[k]=v);
 	return out;
 }
+
 new Vue({
 	el:"#app",
 	methods:{
 		nextpage(){
 			const pc=this.rawpagecount;
 			this.rawpagecount=1;
-			this.fetch(this.pagenum,pc);
+			this.fetch(this.pagenum,pc,1);
 		},
 		prevpage(){
 			this.rawpagecount=1;
@@ -52,6 +54,24 @@ new Vue({
 		clearlog(){
 			this.logmessages=[];
 		},
+		ptspagenumchange(){
+			clearTimeout(this.timer);
+			this.timer=setTimeout(()=>{
+				const volpage=ptscite(this.ptspagenum);
+				if (volpage) {
+					const pagenum=this.db.getfromxref(xrefdbname,volpage[0],volpage[1]);
+					if (pagenum){
+						this.fetch(pagenum);
+					}
+				}
+			},1000);
+		},
+		pagenumchange(){
+			clearTimeout(this.timer);
+			this.timer=setTimeout(()=>{
+				this.fetch()
+			},1000);
+		},
 		fetch(pn,plusminus,pagecount){
 			let prefix=pn;
 			if (typeof prefix!=="string") prefix=this.pagenum;
@@ -60,7 +80,8 @@ new Vue({
 				const elapse=(new Date()).getMilliseconds()-t;
 				setHash({q:prefix});
 				const pagenum=res[1][0];
-				const xref=db.getxrefofpage(pagenum);
+				const pagenums=res.map(item=>item[0]);
+				const xref=db.getxrefofpage(pagenums);
 				if (!this.gettoc) this.gettoc=db.gettoc;
 				this.rawtext=res;
 				this.xref=xref;
@@ -111,8 +132,10 @@ new Vue({
 			xref:{},
 			gettoc:null,
 			pagenum:'',
+			ptspagenum:'',
 			logmessages:[],
-			vpl:'',xrefvpl:''
+			vpl:'',xrefvpl:'',
+			timer:0
 		}
 	}
 });

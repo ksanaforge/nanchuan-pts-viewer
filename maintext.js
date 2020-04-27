@@ -27,7 +27,7 @@ Vue.component('xrefbutton',{
 	},
 	render(h) {
 		const a=this.xref.split(SEGSEP+SEGSEP);
-		return h('span',{class:'xrefbutton',on:{click:this.open}},a[0]);
+		return h('span',{class:'xrefbutton',on:{click:this.open}},a[1]);
 
 	}
 })
@@ -53,7 +53,7 @@ Vue.component('maintext', {
 
 		let text=this.rawtext.map(item=>{
 			let extra='';
-			if (this.xref[item[0]]) {
+			if (this.xref[item[0]]) { //link to parallel corpus by vol:page
 				extra="<"+this.xref[item[0]]+">";
 			}
 			return item[1]+extra;
