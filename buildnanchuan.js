@@ -13,8 +13,8 @@ const ptsvolname=require("./ptsvolname");
 const {SEGSEP,LEVELSEP}=require("dengine");
 const Name={};
 
-REGEXP1=/^(\d+):(\d+).(\d+),(.+)\.(\d+)\.(\d+)/ //see gen-nanchuan.js 
-REGEXP2=/^(\d+):(\d+).(\d+),(.+)(\.)(\d+)/
+REGEXP1=/^(\d+):(\d+).(\d+),(\S+)\.(\d+)\.(\d+)/ //see gen-nanchuan.js 
+REGEXP2=/^(\d+):(\d+).(\d+),(\S+)(\.)(\d+)/
 
 let lastv, lastptsv,lastptsp;
 const xref=[];
@@ -30,7 +30,12 @@ rawxref.forEach(item=>{
 	if (!ptsvolname[bk]) throw "error name "+bk;
 	if (ptsvolname[bk]==-1) return;
 
-	let pts_v=ptsvolname[bk]+(bkn-1);
+	const ptsv       =     Math.floor(ptsvolname[bk]);
+	const ptsv_start =     Math.round((ptsvolname[bk]-ptsv)*10000);
+
+	ptsp-=ptsv_start;
+
+	let pts_v=ptsv+(bkn-1);
 
 	let nanchuan='',pts='';
 	if (lastv!==v) {

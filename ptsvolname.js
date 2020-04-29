@@ -4,8 +4,8 @@ module.exports=
   	  "Khp": 22,  "Dhp": 23, "Ud": 24,  "It": 25,
   'Sn': 26,  'Vv': 27,  'Pv': 28,  'Th': 29,  'Thī': 29,
   'Ja': 30,
-  'Nidd': 36,
-  'Cp': 37,
+  'Nidd': 36, //cnd=nidd.2  on 37 
+  'Cp': 42.0072 , //start from vol 42, minus 72, n44n0021 PTS.Cp.73 ==> 42.1
   'Paṭis': 38,
   'Ap': 40,
   'Bv': 41,
